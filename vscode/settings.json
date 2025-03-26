@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Default Dark+",
     "background.customImages": [
         "file:///E:/file/image/code_bg.jpg"
     ],
@@ -306,8 +305,24 @@
     "STM32VSCodeExtension.cubeCLT.path": "d:\\Tool\\STM32CubeCLT_1.15.1",
     "STM32VSCodeExtension.projectCreator.executablePath": "d:\\Tool\\STM32CubeMX\\STM32CubeMX.exe",
     "STM32VSCodeExtension.productFinder.executablePath": "d:\\Tool\\STMCUFinder\\STMCUFinder.exe",
-    "godotTools.editorPath.godot4": "D:\\Tool\\Godot\\Godot_v4.3-stable_win64.exe",
+    "godotTools.editorPath.godot4": "D:\\Tools\\Godot\\Godot_v4.3-stable_win64.exe",
     "terminal.integrated.commandsToSkipShell": [
         "matlab.interrupt"
-    ]
+    ],
+    "python.languageServer": "Pylance",
+    "powermode.shake.enabled": false,
+    "powermode.combo.location": "editor",
+    "powermode.combo.counterEnabled": "show",
+    "powermode.combo.timeout": 5,
+    "powermode.combo.timerEnabled": "show",
+    "powermode.enabled": true,
+    "chat.commandCenter.enabled": false,
+    "vscode_custom_css.imports": [],
+    "animations.Install-Method": "Custom UI Style",
+    "custom-ui-style.external.imports": [
+        "file:///c:/Users/Jacken/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    ],
+    "animations.CursorAnimation": true,
+    "animations.UseCursorColorForCursorAnimation": true,
+    "winopacity.opacity": 248,
 }
