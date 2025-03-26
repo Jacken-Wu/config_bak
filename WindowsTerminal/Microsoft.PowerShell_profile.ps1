@@ -12,10 +12,25 @@ oh-my-posh init pwsh --config C:\Users\Jacken\Documents\PowerShell\capr4n.omp.js
 $env:PYTHONIOENCODING="utf-8"
 iex "$(thefuck --alias)"
 
-# PSFzf配置
-# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-# pass your override to PSFzf:
-Set-PsFzfOption -AltCCommand $commandOverride
+# fzf bindings
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -PSReadlineChordSetLocation 'Alt+c'
 # **<TAB>
 Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+# fzf options
+$env:FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
+$env:FZF_CTRL_T_OPTS="
+	--walker-skip .git,node_modules,target
+	--preview 'bat -n --color=always {}'
+	--height 80%
+	--border
+	--bind 'ctrl-/:change-preview-window(down|hidden|)'"
+$env:FZF_CTRL_R_OPTS="
+	--preview 'echo {} | sed `"s/^[^a-zA-Z]*\([a-zA-Z0-9-]\{1,\}\).*/\1/`"'
+	--height 80%
+	--border"
+$env:FZF_ALT_C_OPTS="
+	--walker-skip .git,node_modules,target
+	--preview 'ls {}'
+	--height 80%
+	--border
+	--bind 'ctrl-/:change-preview-window(down|hidden|)'"
