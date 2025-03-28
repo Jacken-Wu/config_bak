@@ -178,6 +178,32 @@ let g:ZFVimIM_symbolMap = {
             \   '"' : ['“', '”'],
             \   }
 
+" 命令行输入
+function! ZF_Setting_cmdEdit()
+    let cmdtype = getcmdtype()
+    if cmdtype != ':' && cmdtype != '/'
+        return ''
+    endif
+    call feedkeys("\<c-c>q" . cmdtype . 'k0' . (getcmdpos() - 1) . 'li', 'nt')
+    return ''
+endfunction
+cnoremap <silent><expr> ;; ZF_Setting_cmdEdit()
+
+" terminal输入
+if has('terminal') || has('nvim')
+    function! PassToTerm(text)
+        let @t = a:text
+        if has('nvim')
+            call feedkeys('"tpa', 'nt')
+        else
+            call feedkeys("a\<c-w>\"t", 'nt')
+        endif
+        redraw!
+    endfunction
+    command! -nargs=* PassToTerm :call PassToTerm(<q-args>)
+    tnoremap ;; <c-\><c-n>q:a:PassToTerm<space>
+endif
+
 " ---------------------翻译---------------------
 let g:translator_default_engines=['youdao', 'bing']
 nmap <silent> <Leader>t <Plug>TranslateW
