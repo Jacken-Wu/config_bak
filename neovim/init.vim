@@ -45,12 +45,23 @@ nnoremap <C-s> :w<CR>
 nnoremap yy yy:let @* = @"<CR>
 nnoremap yw yw:let @* = @"<CR>
 vnoremap y y:let @* = @"<CR>
-nnoremap <Leader>y :let @* = @"<CR>
-nnoremap <Leader>p "*p
-nnoremap <Leader>P "*P
-vnoremap <Leader>p "*p
-vnoremap <Leader>P "*P
 inoremap <C-v> <Esc>"*pa
+
+" ----------------复制粘贴增强----------------
+function Copy()
+    let key = getchar()
+    let reg = nr2char(key)
+    exec 'let @'.reg.' = @"'
+endfunction
+vnoremap <Leader>y y:reg<CR>:call Copy()<CR>
+function Paste(arg)
+    let key = getchar()
+    let reg = nr2char(key)
+    exec 'normal! "'.reg.a:arg
+endfunction
+nnoremap <Leader>p :reg<CR>:call Paste('p')<CR>
+nnoremap <Leader>P :reg<CR>:call Paste('P')<CR>
+vnoremap <Leader>p "_d:reg<CR>:call Paste('P')<CR>
 
 " -----------------查看寄存器-----------------
 nnoremap <Leader>r :reg<CR>
