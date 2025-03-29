@@ -52,6 +52,9 @@ vnoremap <Leader>p "*p
 vnoremap <Leader>P "*P
 inoremap <C-v> <Esc>"*pa
 
+" -----------------查看寄存器-----------------
+nnoremap <Leader>r :reg<CR>
+
 " -----------------打开新标签-----------------
 nnoremap gn :tabnew
 nnoremap gc :tabclose<CR>
