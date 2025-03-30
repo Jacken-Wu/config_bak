@@ -47,22 +47,6 @@ nnoremap yw yw:let @* = @"<CR>
 vnoremap y y:let @* = @"<CR>
 inoremap <C-v> <Esc>"*pa
 
-" ----------------复制粘贴增强----------------
-function Copy()
-    let key = getchar()
-    let reg = nr2char(key)
-    exec 'let @'.reg.' = @"'
-endfunction
-vnoremap <Leader>y y:reg<CR>:call Copy()<CR>
-function Paste(arg)
-    let key = getchar()
-    let reg = nr2char(key)
-    exec 'normal! "'.reg.a:arg
-endfunction
-nnoremap <Leader>p :reg<CR>:call Paste('p')<CR>
-nnoremap <Leader>P :reg<CR>:call Paste('P')<CR>
-vnoremap <Leader>p "_d:reg<CR>:call Paste('P')<CR>
-
 " -----------------查看寄存器-----------------
 nnoremap <Leader>r :reg<CR>
 
@@ -99,6 +83,7 @@ Plug 'voldikss/vim-browser-search'  " 浏览器搜索
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }  " Markdown预览
 Plug 'kamykn/spelunker.vim'  " 单词拼写检查
 Plug 'jpalardy/vim-slime'  " 发送代码到REPL
+Plug 'Jacken-Wu/regm.nvim'  " 复制粘贴增强
 
 " 中文输入
 Plug 'ZSaberLv0/ZFVimIM'
@@ -270,6 +255,12 @@ let g:slime_bracketed_paste = 1
 if has('win32') || has('win64')
 	let g:slime_target = "neovim"
 endif
+
+" -----------------复制粘贴增强-----------------
+nnoremap <silent> <leader>p :call regm#ShowClipboardRegisters('paste', 'p')<CR>
+nnoremap <silent> <leader>yy :call regm#ShowClipboardRegisters('copy', 'yy')<CR>
+nnoremap <silent> <leader>yw :call regm#ShowClipboardRegisters('copy', 'yw')<CR>
+vnoremap <silent> <leader>y y:call regm#ShowClipboardRegisters('copy', 'y')<CR>
 
 " -------------------lua脚本--------------------
 lua <<EOF
