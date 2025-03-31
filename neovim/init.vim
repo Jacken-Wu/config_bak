@@ -257,11 +257,12 @@ if has('win32') || has('win64')
 endif
 
 " -----------------复制粘贴增强-----------------
-nnoremap <silent> <leader>p :call regm#ShowClipboardRegisters('paste', 'p')<CR>
-nnoremap <silent> <leader>P :call regm#ShowClipboardRegisters('paste', 'P')<CR>
 nnoremap <silent> <leader>yy :call regm#ShowClipboardRegisters('copy', 'yy')<CR>
 nnoremap <silent> <leader>yw :call regm#ShowClipboardRegisters('copy', 'yw')<CR>
 vnoremap <silent> <leader>y y:call regm#ShowClipboardRegisters('copy', 'y')<CR>
+nnoremap <silent> <leader>p :call regm#ShowClipboardRegisters('paste', 'p')<CR>
+nnoremap <silent> <leader>P :call regm#ShowClipboardRegisters('paste', 'P')<CR>
+vnoremap <silent> <leader>p d:call regm#ShowClipboardRegisters('paste', 'P')<CR>
 
 " -------------------lua脚本--------------------
 lua <<EOF
