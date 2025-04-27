@@ -242,11 +242,14 @@ let g:spelunker_disable_email_checking = 1  " 禁用邮件检查
 let g:spelunker_disable_account_name_checking = 1  " 禁用用户名检查
 let g:spelunker_disable_acronym_checking = 1  " 禁用缩写检查
 let g:spelunker_disable_backquoted_checking = 1  " 禁用反引号检查
-nmap zl Zl  " 更改光标下单词
-nmap zg Zg  " 标记为正确拼写
-nmap zug Zug  " 取消标记为正确拼写
-nmap zw Zw  " 标记为错误拼写
-nmap zuw ZuW  " 取消标记为错误拼写
+" 更改光标下单词
+nmap zl Zl
+" 标记/取消标记为正确拼写
+nmap zg Zg
+nmap zug Zug
+" 标记/取消标记为错误拼写
+nmap zw Zw
+nmap zuw ZuW
 
 " ----------------发送代码到REPL----------------
 let g:slime_target = "tmux"
