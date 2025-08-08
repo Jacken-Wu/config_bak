@@ -84,6 +84,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' 
 Plug 'kamykn/spelunker.vim'  " 单词拼写检查
 Plug 'jpalardy/vim-slime'  " 发送代码到REPL
 Plug 'Jacken-Wu/regm.nvim'  " 复制粘贴增强
+Plug 'sindrets/diffview.nvim'  " git diff
+Plug 'nvim-tree/nvim-web-devicons'  " diffview 依赖的图标插件
 
 " 中文输入
 Plug 'ZSaberLv0/ZFVimIM'
