@@ -1,6 +1,7 @@
 # 自动补全历史命令，逐字补全
-Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -HistorySaveStyle SaveIncrementally -MaximumHistoryCount 5000
+Set-PSReadLineOption -HistoryNoDuplicates
 
 # 修改Tab补全为bash风格
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
