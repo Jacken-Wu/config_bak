@@ -94,12 +94,13 @@
     Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
     # fzf options
     $env:FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
-    $env:FZF_CTRL_T_OPTS="
+    $env:FZF_CTRL_T_OPTS=@"
         --walker-skip .git,node_modules,target
         --preview 'pwsh -NoProfile -ExecutionPolicy Bypass -File "$HOME\Documents\PowerShell\Scripts\fzf-previewer.ps1" {}'
         --height 80%
         --border
-        --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+        --bind 'ctrl-/:change-preview-window(down|hidden|)'
+    "@
     $env:FZF_CTRL_R_OPTS="
         --preview 'echo {} | sed `"s/^[^a-zA-Z]*\([a-zA-Z0-9-]\{1,\}\).*/\1/`"'
         --height 80%
