@@ -8,7 +8,23 @@
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
 
-3. Put agnoster.zsh-theme into ~/.oh-my-zsh/themes/
+3. Edit agnoster.zsh-theme color
+
+    ```bash
+    # ~/.oh-my-zsh/themes/
+    # Current working directory
+    : ${AGNOSTER_DIR_FG:=white}
+    : ${AGNOSTER_DIR_BG:=magenta}
+    
+    # user@host
+    : ${AGNOSTER_CONTEXT_FG:=white}
+    : ${AGNOSTER_CONTEXT_BG:=cyan}
+    
+    # prompt_context()中
+    prompt_segment "$AGNOSTER_CONTEXT_BG" "$AGNOSTER_CONTEXT_FG" "%(!.%{%F{$AGNOSTER_STATUS_ROOT_FG}%}.)%n@%m"
+    # 改为
+    prompt_segment "$AGNOSTER_CONTEXT_BG" "$AGNOSTER_CONTEXT_FG" "%(!.%{%F{$AGNOSTER_STATUS_ROOT_FG}%}.)%n"
+    ```
 
 4. Edit ~/.zshrc
 
