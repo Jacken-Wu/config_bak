@@ -5,8 +5,12 @@
 * For Linux
 
     ```bash
+    # Install fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+
+    # Install bat, img2txt
+    sudo apt install bat caca-utils
     ```
 
 * For Windows
@@ -43,7 +47,14 @@
     export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
     export FZF_CTRL_T_OPTS="
       --walker-skip .git,node_modules,target
-      --preview 'bat -n --color=always {}'
+      --preview '
+        mimetype=\$(file --brief --mime-type {});
+        if [[ \"\$mimetype\" == image/* ]]; then
+          img2txt -x 4 -y 9 {};
+        else
+          bat -n --color=always {};
+        fi
+      '
       --height 80%
       --border
       --bind 'ctrl-/:change-preview-window(down|hidden|)'"
