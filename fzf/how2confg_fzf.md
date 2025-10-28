@@ -9,14 +9,19 @@
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 
-    # Install bat, img2txt
-    sudo apt install bat caca-utils
+    # Install bat, chafa
+    sudo apt install bat chafa
     ```
 
 * For Windows
 
     ```powershell
+    # Install fzf
     choco install fzf
+
+    # Install bat, chafa
+    choco install bat
+    winget install --id=hpjansson.Chafa -e
     ```
 
 ## Config fzf
@@ -50,7 +55,7 @@
       --preview '
         mimetype=\$(file --brief --mime-type {});
         if [[ \"\$mimetype\" == image/* ]]; then
-          img2txt -x 4 -y 9 {};
+          chafa {};
         else
           bat -n --color=always {};
         fi
@@ -78,7 +83,9 @@
     Install-Module -Name PSFzf -RequiredVersion 2.6.1
     ```
 
-    2.Add this command to `profile.ps1` file:
+    2.Put `fzf-previewer.ps1` to `~/Documents/PowerShell/Scripts/`.
+
+    3.Add this command to `profile.ps1` file:
 
     ```powershell
     # fzf bindings
@@ -89,7 +96,7 @@
     $env:FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
     $env:FZF_CTRL_T_OPTS="
         --walker-skip .git,node_modules,target
-        --preview 'bat -n --color=always {}'
+        --preview 'pwsh -NoProfile -ExecutionPolicy Bypass -File "$HOME\Documents\PowerShell\Scripts\fzf-previewer.ps1" {}'
         --height 80%
         --border
         --bind 'ctrl-/:change-preview-window(down|hidden|)'"
