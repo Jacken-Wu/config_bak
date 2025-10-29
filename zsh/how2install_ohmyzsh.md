@@ -28,6 +28,14 @@
 
 4. Edit ~/.zshrc
 
+    ```
+    # Set the theme to use
+    ZSH_THEME="agnoster"
+
+    # Set quick sudo with twice escape
+    bindkey -s '\e\e' '\C-asudo \C-e'
+    ```
+
 5. If some characters are garbled, try to install MesloLGS NF font.
 
     ```bash
