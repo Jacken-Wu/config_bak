@@ -1,20 +1,27 @@
 # How To Install tmux-powerline?
 
-## Install tmux-powerline
+## Config tmux-powerline
 
-1. Download tpm.
+1. Put .tmux.conf to ~/.tmux.conf
+
+2. Edit ~/.zshrc
+
+    ```bash
+    export TERM=xterm-256color
+    ```
+
+3. Download tpm.
 
     ```bash
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ```
 
-2. Press prefix + I to install the plugs.
+4. Open tmux and press prefix + I to install the plugs.
 
-3. If characters can not display normally, install the powerline font.
+5. If characters can not display normally, install the powerline font.
 
     ```bash
     sudo apt install fonts-powerline
-
     ```
 
 ## Config Powerline
