@@ -7,7 +7,12 @@
 2. Edit ~/.zshrc
 
     ```bash
+    # set tmux colors
     export TERM=xterm-256color
+
+    # set tmux temp folder
+    export TMUX_TMPDIR=$HOME/.tmux_tmp
+    mkdir -p "$TMUX_TMPDIR"
     ```
 
 3. Download tpm.
