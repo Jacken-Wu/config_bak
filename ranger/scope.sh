@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+PREVIEW_WIDTH="$2"
+PREVIEW_HEIGHT="$3"
 
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
@@ -445,6 +447,7 @@ handle_mime() {
         image/*)
             ## Preview as text conversion
             # img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            chafa --font-ratio="4/9" --size="${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}" --colors=256 "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
