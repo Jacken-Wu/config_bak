@@ -55,7 +55,7 @@
       --preview '
         mimetype=\$(file --brief --mime-type {});
         if [[ \"\$mimetype\" == image/* ]]; then
-          chafa {};
+          chafa --font-ratio=4/9 --size=\${FZF_PREVIEW_COLUMNS}x\${FZF_PREVIEW_LINES} {};
         else
           bat -n --color=always {};
         fi

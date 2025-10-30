@@ -12,7 +12,8 @@ if (-not (Test-Path -LiteralPath $FilePath -PathType Leaf)) {
 }
 
 # fzf 会在运行时设置这个环境变量
-$Width = $env:FZF_PREVIEW_WIDTH
+$Width = $env:FZF_PREVIEW_COLUMNS
+$Height = $env:FZF_PREVIEW_LINES
 
 # 定义图片扩展名列表
 $ImageExtensions = @(".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".tiff")
@@ -24,7 +25,7 @@ if ($ImageExtensions -contains $FileExtension) {
     # -----------------
     # 1. 预览图片
     # -----------------
-    chafa $FilePath
+    chafa --font-ratio=4/9 --size=${Width}x${Height} $FilePath
 } else {
     # -----------------
     # 2. 预览文本 (或其他)

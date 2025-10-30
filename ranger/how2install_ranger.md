@@ -8,6 +8,23 @@
 
 2. Put the other files except this md file into ~/.config/ranger/.
 
+    - commands_full.py: all commands
+    - commands.py: custom commands
+    - rc.conf: startup config
+    - rifle.conf: file executor/opener
+    - scope.sh: preview
+
+    Change txt files and image files' preview in scope.sh.
+    ```bash
+    # Preview txt files with bat
+    # Change the text/* part in handle_mime()
+    env COLORTERM=8bit bat --color=always --style="${BAT_STYLE}"
+
+    # Preview image files with chafa
+    # Change the image/* part in handle_mime()
+    chafa --colors=256 "${FILE_PATH}" && exit 5
+    ```
+
 3. Add the following lines to ~/.bashrc or ~/.zshrc. This makes you CD into the last directory when you exit ranger.
 
     ```bash
