@@ -21,8 +21,11 @@
     env COLORTERM=8bit bat --color=always --style="${BAT_STYLE}"
 
     # Preview image files with chafa
+    # Set the preview size at the beginning of the script
+    PREVIEW_WIDTH="$2"
+    PREVIEW_HEIGHT="$3"
     # Change the image/* part in handle_mime()
-    chafa --colors=256 "${FILE_PATH}" && exit 5
+    chafa --font-ratio="4/9" --size="${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}" --colors=256 "${FILE_PATH}" && exit 5
     ```
 
 3. Add the following lines to ~/.bashrc or ~/.zshrc. This makes you CD into the last directory when you exit ranger.
