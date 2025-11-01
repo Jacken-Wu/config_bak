@@ -1,0 +1,5 @@
+[mgr]
+prepend_keymap = [
+	{ on = "K", run = "arrow -5", desc = "5 previous files" },
+	{ on = "J", run = "arrow 5", desc = "5 next files" },
+]
