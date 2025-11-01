@@ -58,8 +58,8 @@ nnoremap gC :tabonly<CR>
 " --------------------插件--------------------
 call plug#begin()
 
-Plug 'preservim/nerdtree'  " 目录树
-Plug 'ryanoasis/vim-devicons'  " 目录树图标
+Plug 'stevearc/oil.nvim'  " 文件管理器
+Plug 'nvim-mini/mini.nvim', { 'branch': 'stable' }  " oil.nvim 的图标依赖
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " 自动补全
 Plug 'jiangmiao/auto-pairs'  " 自动括号
 Plug 'sheerun/vim-polyglot'  " 高亮
@@ -85,7 +85,7 @@ Plug 'kamykn/spelunker.vim'  " 单词拼写检查
 Plug 'jpalardy/vim-slime'  " 发送代码到REPL
 Plug 'Jacken-Wu/regm.nvim'  " 复制粘贴增强
 Plug 'sindrets/diffview.nvim'  " git diff
-Plug 'nvim-tree/nvim-web-devicons'  " diffview 依赖的图标插件
+Plug 'nvim-tree/nvim-web-devicons'  " diffview 和 oil.nvim 依赖的图标插件
 
 " 中文输入
 Plug 'ZSaberLv0/ZFVimIM'
@@ -96,25 +96,8 @@ Plug 'ZSaberLv0/ZFVimIM_openapi' " 百度云输入法
 
 call plug#end()
 
-" ----------------NERDTree的配置---------------
-" autocmd vimenter * NERDTree  "自动开启Nerdtree
-" let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
-" 开启/关闭nerdtree快捷键
-map <silent> <C-f> :NERDTreeToggle<CR>
-" let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-" 打开vim时如果没有文件自动打开NERDTree
-autocmd vimenter * if !argc()|NERDTree|endif
-" 当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" 设置树的显示图标
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeIgnore = ['\.pyc$']  " 过滤所有.pyc文件不显示
-let g:NERDTreeShowLineNumbers=1  " 是否显示行号
-let g:NERDTreeHidden=0     " 不显示隐藏文件
-" Making it prettier
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+" ------------------oil的配置-------------------
+nnoremap <silent> <C-f> :Oil --float<CR>
 
 " -------------------批量注释-------------------
 let g:NERDCreateDefaultMappings = 0
@@ -271,6 +254,7 @@ vnoremap <silent> <leader>p d:call regm#ShowClipboardRegisters('paste', 'P')<CR>
 
 " -------------------lua脚本--------------------
 lua <<EOF
+require("oil").setup()
 require('fittencode').setup()  -- AI补全
 require('scrollbar').setup()  -- 滚动条
 require('smoothcursor').setup({
