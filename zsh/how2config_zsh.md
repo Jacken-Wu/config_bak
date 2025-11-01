@@ -2,7 +2,7 @@
 
 1. Install zsh.
 
-2. Run this sh code.
+2. Run this sh code to install oh-my-zsh.
 
     ```bash
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -34,6 +34,9 @@
 
     # Set quick sudo with twice escape
     bindkey -s '\e\e' '\C-asudo \C-e'
+
+    # Set default editor
+    export EDITOR='nvim'
     ```
 
 5. If some characters are garbled, try to install MesloLGS NF font.
