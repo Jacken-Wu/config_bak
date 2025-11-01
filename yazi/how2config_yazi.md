@@ -21,3 +21,5 @@
         fi
     }
     ```
+
+    If zoxide error `zoxide: no match found`, change `cd --` to `cd`.
