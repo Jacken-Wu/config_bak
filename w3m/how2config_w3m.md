@@ -1,6 +1,6 @@
 # How to configure w3m
 
-1. Install w3m
+1. Install w3m and w3m-img
 
 2. Open w3m, press `o`
 
