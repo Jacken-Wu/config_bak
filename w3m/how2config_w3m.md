@@ -10,3 +10,9 @@
     ```
 
 3. Put `w3m-chafa-viewer` and `mailcap` intp `~/.w3m/`
+
+4. Give execute permission to `w3m-chafa-viewer`
+
+    ```bash
+    chmod +x ~/.w3m/w3m-chafa-viewer
+    ```
