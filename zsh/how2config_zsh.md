@@ -32,8 +32,11 @@
     # Set the theme to use
     ZSH_THEME="agnoster"
 
-    # Set quick sudo with twice escape
-    bindkey -s '\e\e' '\C-asudo \C-e'
+    # bindkey
+    bindkey '\C-e\C-e' edit-command-line
+    bindkey '\C-j' history-search-forward
+    bindkey '\C-k' history-search-backward
+    bindkey '\C-l' accept-line
 
     # Set default editor
     export EDITOR='nvim'
