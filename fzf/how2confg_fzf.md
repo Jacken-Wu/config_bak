@@ -95,6 +95,9 @@
     Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
     # fzf options
     $env:FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
+    $env:FZF_DEFAULT_OPTS="
+        --bind 'ctrl-/:change-preview-window(down|hidden|)'
+        --bind 'ctrl-l:accept'"
     $env:FZF_CTRL_T_OPTS=@"
         --walker-skip .git,node_modules,target
         --preview 'pwsh -NoProfile -ExecutionPolicy Bypass -File "$HOME\Documents\PowerShell\Scripts\fzf-previewer.ps1" {}'
