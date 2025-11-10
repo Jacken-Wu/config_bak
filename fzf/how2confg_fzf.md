@@ -48,7 +48,8 @@
       --preview '[ -f {} ] && bat -n --color=always {} || [ -d {} ] && ls {}'
       --height 80%
       --border
-      --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+      --bind 'ctrl-/:change-preview-window(down|hidden|)'
+      --bind 'ctrl-l:accept'"
     export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
     export FZF_CTRL_T_OPTS="
       --walker-skip .git,node_modules,target
