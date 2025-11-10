@@ -7,10 +7,14 @@ Set-PSReadLineOption -HistoryNoDuplicates
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 # 设置向上箭头为搜索历史中以当前输入开头的命令
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key 'Ctrl+k' -Function HistorySearchBackward
 # 设置向下箭头为反向搜索
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Key 'Ctrl+j' -Function HistorySearchForward
 # 优化历史搜索体验
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+# 修改 Ctrl-l 为接受命令
+Set-PSReadLineKeyHandler -Key 'Ctrl+l' -Function AcceptLine
 
 # 主题
 oh-my-posh init pwsh --config C:\Users\Jacken\Documents\PowerShell\capr4n.omp.json | Invoke-Expression
