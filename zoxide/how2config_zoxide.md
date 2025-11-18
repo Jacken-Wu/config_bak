@@ -16,3 +16,5 @@
     # For powershell
     Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
     ```
+
+3. If cd error `cd:1: maximum nested function level reached; increase FUNCNEST?`, reinstall zoxide with `curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh`. It will install the newest version.
