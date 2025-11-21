@@ -34,8 +34,8 @@
 
     # bindkey
     bindkey '\C-e\C-e' edit-command-line
-    bindkey '\C-j' history-search-forward
-    bindkey '\C-k' history-search-backward
+    bindkey '\C-j' down-line-or-beginning-search
+    bindkey '\C-k' up-line-or-beginning-search
     bindkey '\C-l' accept-line
 
     # Set default editor
