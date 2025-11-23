@@ -254,7 +254,11 @@ vnoremap <silent> <leader>p d:call regm#ShowClipboardRegisters('paste', 'P')<CR>
 
 " -------------------lua脚本--------------------
 lua <<EOF
-require("oil").setup()
+require("oil").setup({
+	float = {
+    border = "rounded",
+  },
+})
 require('fittencode').setup()  -- AI补全
 require('scrollbar').setup()  -- 滚动条
 require('smoothcursor').setup({
