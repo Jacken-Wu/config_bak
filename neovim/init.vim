@@ -277,6 +277,12 @@ require('smoothcursor').setup({
 		tail = { cursor = ".", texthl = "SmoothCursorAqua" }
 	}
 })  -- 左侧光标
+require("transparent").setup({
+  extra_groups = {
+    "NormalFloat", -- 这通常会让所有的悬浮窗变成全透明
+    "FloatBorder", -- 让边框也透明
+  }, 
+})
 EOF
 
 " --------------------neovide-------------------
