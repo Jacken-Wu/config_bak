@@ -105,6 +105,11 @@ noremap <Leader>c :call nerdcommenter#Comment('', 'Toggle')<CR>
 inoremap <Leader>c <Esc>:call nerdcommenter#Comment('', 'Toggle')<CR>a
 
 " -----------------coc.nvim配置-----------------
+" 将 Snippet 的【下一个】跳转键改为 Ctrl + e
+let g:coc_snippet_next = '<C-e>'
+" 将 Snippet 的【上一个】跳转键改为 Ctrl + b
+let g:coc_snippet_prev = '<C-b>'
+
 " 使用 ctrl + j 向下选择自动补全的候选词
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 " 使用 ctrl + k 向上选择自动补全的候选词
